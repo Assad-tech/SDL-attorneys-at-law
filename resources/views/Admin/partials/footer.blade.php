@@ -1,0 +1,15 @@
+<!-- Footer Start -->
+<footer class="footer">
+    <div class="page-container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <script>document.write(new Date().getFullYear())</script>
+                &copy; ProMax -
+                <span class="fw-semibold text-decoration-underline text-primary">
+                    All Rights Reserved
+                </span>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- end Footer -->
