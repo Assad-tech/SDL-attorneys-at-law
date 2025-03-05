@@ -13,38 +13,37 @@ class AdminController extends Controller
 {
     public function index()
     {
-        $allProperties = Property::all()->count();
-        $allContactUs = ContactUs::all()->count();
+
         // dd($allProperties);
-        return view('admin.pages.index', compact('allProperties', 'allContactUs'));
+        return view('admin.pages.index');
     }
 
-    public function datatables()
-    {
-        $getAllContactUs = ContactUs::orderBy('id', 'desc')->get();
-        foreach ($getAllContactUs as $key => $value) {
-            $getAllContactUs[$key]->user_fullname = $value->first_name . ' ' . $value->last_name;
-        }
-        // return $getAllContactUs;
-        // dd($getAllContactUs);
-        // return view('admin.pages.contactUs', compact('getAllContactUs'));
-        return DataTables::collection($getAllContactUs)->toJson();
-    }
+    // public function datatables()
+    // {
+    //     $getAllContactUs = ContactUs::orderBy('id', 'desc')->get();
+    //     foreach ($getAllContactUs as $key => $value) {
+    //         $getAllContactUs[$key]->user_fullname = $value->first_name . ' ' . $value->last_name;
+    //     }
+    //     // return $getAllContactUs;
+    //     // dd($getAllContactUs);
+    //     // return view('admin.pages.contactUs', compact('getAllContactUs'));
+    //     return DataTables::collection($getAllContactUs)->toJson();
+    // }
 
-    public function contactUs()
-    {
+    // public function contactUs()
+    // {
 
-        // dd($getAllContactUs);
-        return view('Admin.pages.viewContactUs');
-    }
+    //     // dd($getAllContactUs);
+    //     return view('Admin.pages.viewContactUs');
+    // }
 
-    public function destroy()
-    {
-        $id = request('id');
-        $contactUs = ContactUs::find($id);
-        $contactUs->delete();
-        return response()->json(['success' => 'Contact Us deleted successfully.']);
-    }
+    // public function destroy()
+    // {
+    //     $id = request('id');
+    //     $contactUs = ContactUs::find($id);
+    //     $contactUs->delete();
+    //     return response()->json(['success' => 'Contact Us deleted successfully.']);
+    // }
 
     // get all contact us by yajra datatables
 

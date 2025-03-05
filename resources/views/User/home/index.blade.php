@@ -7,7 +7,31 @@
     <!-- :: Header -->
     <header class="header" id="page">
         <div class="header-owl owl-carousel owl-theme">
-            <div class="sec-hero display-table"
+
+            @foreach ($homeSection as $slider)
+                {{-- @dd($slider) --}}
+                <div class="sec-hero display-table" style="background-image: url({{asset($slider->slider_image)}})">
+                    <div class="table-cell">
+                        <div class="overlay"></div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="banner">
+                                        <div class="headline-top">{{$slider->greetings ?? " "}}</div>
+                                        <h1 class="handline">{{$slider->slider_title ?? "  "}}</h1>
+                                        <p class="about-website">{{$slider->slider_description ?? " "}}</p>
+
+                                        <!--<a class="btn-1 btn-2 move-section" href="contact.php">Let's Start</a>-->
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+
+            {{-- <div class="sec-hero display-table"
                 style="background-image: url({{asset('user/assets/images/header/header.jpg')}})">
                 <div class="table-cell">
                     <div class="overlay"></div>
@@ -26,9 +50,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
-            <div class="sec-hero display-table"
+            {{-- <div class="sec-hero display-table"
                 style="background-image: url({{asset('user/assets/images/home/banner2.png')}})">
                 <div class="table-cell">
                     <div class="overlay"></div>
@@ -54,7 +78,7 @@
                     </div>
                 </div>
 
-            </div>
+            </div> --}}
     </header>
 
 

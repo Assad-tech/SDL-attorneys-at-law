@@ -41,22 +41,22 @@
             </li>
 
             <li class="side-nav-item">
-                <a href="{{ route('show.property') }}" class="side-nav-link">
+                <a href="{{ route('admin.home-section.index') }}" class="side-nav-link">
                     <span class="menu-icon">
                         <span class="mdi mdi-home-city-outline"></span>
 
                     </span>
-                    <span class="menu-text"> Properties </span>
+                    <span class="menu-text"> Home </span>
                 </a>
             </li>
-            <li class="side-nav-item">
+            {{-- <li class="side-nav-item">
                 <a href="{{ route('admin.contact-us') }}" class="side-nav-link">
                     <span class="menu-icon">
                         <span class="mdi mdi-message-alert-outline"></span>
                     </span>
                     <span class="menu-text">Contact us</span>
                 </a>
-            </li>
+            </li> --}}
             
         </ul>
 

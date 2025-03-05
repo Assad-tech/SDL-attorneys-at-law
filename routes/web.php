@@ -1,10 +1,10 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\PropertyController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\User\FindRentalController;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 // Auth Routes
 Route::middleware('guest')->group(function () {
     route::controller(AuthController::class)->group(function () {
-        Route::get('/admin', 'adminLogin')->name('admin.login');
+        Route::get('admin/login', 'adminLogin')->name('admin.login');
         Route::post('admin/login', 'AdminLoginProcess')->name('admin.login-process');
 
         // Route::get('/register', 'register')->name('register');
@@ -41,15 +41,24 @@ Route::middleware('guest')->group(function () {
 });
 
 
-Route::middleware(['pro-max:admin', 'auth'])->prefix('admin')->group(function () {
+Route::middleware(['sdl-attorneys-at-law:admin', 'auth'])->prefix('admin')->group(function () {
     // Admin Routes
     Route::controller(AdminController::class)->group(function () {
         Route::get('/dashboard', 'index')->name('admin.dashboard');
         Route::get('/logout', 'logout')->name('admin.logout');
 
-        Route::get('/contact-us', 'contactUs')->name('admin.contact-us');
-        Route::get('/contact-us/datatables', 'datatables')->name('contact-us.datatables');
-        Route::get('/contact-us/delete/{id}', 'destroy')->name('contact-us.delete');
+        // Route::get('/contact-us', 'contactUs')->name('admin.contact-us');
+        // Route::get('/contact-us/datatables', 'datatables')->name('contact-us.datatables');
+        // Route::get('/contact-us/delete/{id}', 'destroy')->name('contact-us.delete');
+    });
+
+    // Home Setion
+    Route::controller(AdminHomeController::class)->group(function () {
+        Route::get('/home-section', 'index')->name('admin.home-section.index');
+        Route::get('/home-section/datatables',  'datatables');
+        Route::delete('/home-section/delete/{id}',  'delete')->name('admin.home-section.delete');
+        Route::get('/home-section/create', 'create')->name('admin.home-section.create');
+        Route::post('/home-section/create', 'store')->name('admin.home-section.store');
     });
 
     Route::get('/property/datatables', [PropertyController::class, 'datatable'])->name('datatables.property');
@@ -61,7 +70,7 @@ Route::middleware(['pro-max:admin', 'auth'])->prefix('admin')->group(function ()
     Route::get('/property/delete/{id}', [PropertyController::class, 'destroy'])->name('delete.property');
 });
 
-Route::middleware(['pro-max:user', 'auth'])->prefix('user')->group(function () {
+Route::middleware(['sdl-attorneys-at-law:user', 'auth'])->prefix('user')->group(function () {
     // User Routes
     Route::controller(UserController::class)->group(function () {
         Route::get('/logout', 'logout')->name('user.logout');

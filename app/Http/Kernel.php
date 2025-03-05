@@ -64,7 +64,7 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'pro-max' => \App\Http\Middleware\ProMaxMiddleware::class,
+        'sdl-attorneys-at-law' => \App\Http\Middleware\ProMaxMiddleware::class,
         'admin.restricted.routes' => \App\Http\Middleware\AdminRestrictedRoutes::class,
     ];
 }

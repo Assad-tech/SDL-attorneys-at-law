@@ -28,7 +28,7 @@ class ProMaxMiddleware
         
         $roleName = $user->role->name;
         
-        // dd($prefix);
+        // dd($roleName);
         // Check if the prefix matches the user's role
         if (($roleName === 'Admin' && $prefix === '/admin') ||
             ($roleName === 'User' && $prefix === '/user')

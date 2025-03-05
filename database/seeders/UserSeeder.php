@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
@@ -21,18 +22,7 @@ class UserSeeder extends Seeder
                 'image' => null,
                 'status' => 0,
                 'email' => 'admin@admin.com',
-                'password' => bcrypt('admin123'), // Password is hashed using bcrypt
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'role_id' => 2,
-                'first_name' => 'karla',
-                'last_name' => 'john',
-                'image' => null,
-                'status' => 0,
-                'email' => 'karla@example.com',
-                'password' => bcrypt('admin123'), // Password is hashed using bcrypt
+                'password' => Hash::make('admin123'),
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

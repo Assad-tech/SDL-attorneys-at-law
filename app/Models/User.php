@@ -53,10 +53,5 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Role::class);
     }
-    
-    public function contactUs(){
-        return $this->hasMany(ContactUs::class);
-    }
-
 
 }

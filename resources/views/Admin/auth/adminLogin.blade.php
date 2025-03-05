@@ -24,6 +24,11 @@
 
     <!-- Theme Config Js -->
     <script src="assets/js/config.js"></script>
+    <style>
+        .bg-primary{
+            background-color: #064c78 !important;
+        }
+    </style>
 </head>
 
 <body class="authentication-bg bg-primary">

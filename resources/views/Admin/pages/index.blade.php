@@ -105,12 +105,9 @@
             <div class="col-md-6 col-xl-3">
                 <div class="card tilebox-one">
                     <div class="card-body">
-                        {{-- <span class="mdi mdi-home-city-outline"></span> --}}
-                        
                         <i class="icon-home float-end m-0 h2 text-muted"></i>
-                        {{-- <span class="mdi mdi-home-city-outline"></span> --}}
 
-                        <h6 class="text-muted text-uppercase mt-0">Properties</h6>
+                        <h6 class="text-muted text-uppercase mt-0">Home</h6>
                         <h3 class="my-3" data-plugin="counterup">{{ $allProperties?? 0 }}</h3>
                         {{-- <span class="badge bg-success me-1"> +11% </span> <span class="text-muted">From previous
                             period</span> --}}
@@ -122,7 +119,7 @@
                 <div class="card tilebox-one">
                     <div class="card-body">
                         <i class="icon-note float-end m-0 h2 text-muted"></i>
-                        <h6 class="text-muted text-uppercase mt-0">Contact us Queries</h6>
+                        <h6 class="text-muted text-uppercase mt-0">Contact</h6>
                         <h3 class="my-3"><span data-plugin="counterup">{{ $allContactUs?? 0 }}</span></h3>
                         {{-- <span class="badge bg-danger me-1"> -29% </span> <span class="text-muted">From previous
                             period</span> --}}

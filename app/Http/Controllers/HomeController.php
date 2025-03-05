@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\ContactUsNotification;
 use App\Models\ContactUs;
+use App\Models\Home;
 use App\Models\Property;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -15,7 +16,10 @@ class HomeController extends Controller
     // HomePage
     public function index()
     {
-        return view('User.home.index');
+
+        $homeSection = Home::where('status', 1)->get();
+        // dd($homeSection);
+        return view('User.home.index',compact('homeSection'));
     }
 
 

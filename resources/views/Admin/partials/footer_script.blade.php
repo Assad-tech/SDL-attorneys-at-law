@@ -7,10 +7,10 @@
 <script src="{{ asset('admin/assets/js/pages/toastr.js') }}"></script>
 
 <!--Morris Chart-->
-<script src="{{ asset('admin/assets/libs/morris.js/morris.min.js') }}"></script>
-<script src="{{ asset('admin/assets/libs/raphael/raphael.min.js') }}"></script>
+{{-- <script src="{{ asset('admin/assets/libs/morris.js/morris.min.js') }}"></script> --}}
+{{-- <script src="{{ asset('admin/assets/libs/raphael/raphael.min.js') }}"></script> --}}
 <!-- Projects Analytics Dashboard App js -->
-<script src="{{ asset('admin/assets/js/pages/dashboard-sales.js') }}"></script>
+{{-- <script src="{{ asset('admin/assets/js/pages/dashboard-sales.js') }}"></script> --}}
 
 <!-- Datatable plugin js -->
 <script src="{{ asset('admin/assets/libs/datatables.net/js/dataTables.min.js') }}"></script>
@@ -28,56 +28,21 @@
 <script src="{{ asset('admin/assets/libs/datatables.net-keytable/js/dataTables.keyTable.min.js') }}"></script>
 <script src="{{ asset('admin/assets/libs/datatables.net-select/js/dataTables.select.min.js') }}"></script>
 
-<!-- Datatables init -->
-{{-- <script src="{{ asset('admin/assets/js/pages/table-datatable.js') }}"></script> --}}
 <!-- dropify File Upload js -->
 <script src="{{ asset('admin/assets/libs/dropify/js/dropify.min.js') }}"></script>
 <!-- File Upload Demo js -->
 <script src="{{ asset('admin/assets/js/pages/form-fileupload.js') }}"></script>
 
-{{-- <!-- Datatable plugin js -->
-<script src="{{ asset('admin/assets/libs/datatables.net/js/dataTables.min.js') }}"></script>
-<script src="{{ asset('admin/assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}"></script> --}}
-
-{{-- <script src="{{ asset('admin/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
-<script src="{{ asset('admin/assets/libs/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js') }}"></script>
-
-<script src="{{ asset('admin/assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
-<script src="{{ asset('admin/assets/libs/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js') }}"></script>
-
-<script src="{{ asset('admin/assets/libs/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
-<script src="{{ asset('admin/assets/libs/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
-
-<script src="{{ asset('admin/assets/libs/datatables.net-keytable/js/dataTables.keyTable.min.js') }}"></script>
-<script src="{{ asset('admin/assets/libs/datatables.net-select/js/dataTables.select.min.js') }}"></script> --}}
-
-<!-- Datatables init -->
-{{-- <script src="{{ asset('admin/assets/js/pages/table-datatable.js') }}"></script> --}}
 
 <!-- Toastr js -->
 <script src="{{ asset('admin/assets/libs/toastr/build/toastr.min.js') }}"></script>
-
 <script src="{{ asset('admin/assets/js/pages/toastr.js') }}"></script>
 
-{{-- <script>
-    toastr.options = {
-        "closeButton": true,
-        "debug": false,
-        "newestOnTop": false,
-        "progressBar": true,
-        "positionClass": "toast-top-right",
-        "preventDuplicates": false,
-        "onclick": null,
-        "showDuration": "300",
-        "hideDuration": "1000",
-        "timeOut": "5000",
-        "extendedTimeOut": "1000",
-        "showEasing": "swing",
-        "hideEasing": "linear",
-        "showMethod": "fadeIn",
-        "hideMethod": "fadeOut"
-    }
-</script> --}}
+<!-- Quill Editor js -->
+<script src="{{asset('admin/assets/libs/quill/quill.min.js')}}"></script>
+<script src="{{asset('admin/assets/libs/moment/min/moment.min.js')}}"></script>
+<!-- Quill Demo js -->
+<script src="{{asset('admin/assets/js/pages/form-editor.js')}}"></script>
 
 <script>
     @if (Session::has('message'))
