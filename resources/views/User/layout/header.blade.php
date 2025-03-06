@@ -7,22 +7,57 @@
                     <!--<li><span>Email :</span> <a href="mailto:info@gmail.com">Info@gmail.com</a> </li>-->
                     <!--<li><span>Phone :</span><a href="tel:7607813464">760-781-3464</a></li>-->
                 </ul>
+                @php
+                    $fb = getSocialLinks('facebook');
+                    $insta = getSocialLinks('instagram');
+                    $x = getSocialLinks('twitter');
+                    $map = getSocialLinks('google_map');
+                    $yelp = getSocialLinks('yelp');
+                    $linkedin = getSocialLinks('linkedin');
+                    // dd($fb->link);
+                @endphp
                 <ul class="icon-follow">
-                    <li><a class="icon" href="https://maps.app.goo.gl/hnL4tLa2hMbgyZZ48"><i
-                                class="fab fa-google"></i></a></li>
-                    <li><a class="icon" href="https://www.facebook.com/profile.php?id=100054599433668"><i
-                                class="fab fa-facebook-f"></i></a></li>
-                    <li><a class="icon" href="#"><i class="fab fa-instagram"></i></a></li>
-                    <li><a class="icon" href="https://www.yelp.com/biz/skaja-and-daniels-escondido"><i
-                                class="fab fa-yelp"></i></a></li>
-                    <li><a class="icon" href="https://x.com/skajadaniels"><i class="fa-solid fa-x"></i></a></li>
-                    <li><a class="icon" href="https://www.linkedin.com/company/skaja-daniels-llp/"><i
-                                class="fab fa-linkedin"></i></a></li>
+                    <li>
+                        {{-- <a class="icon" href="https://maps.app.goo.gl/hnL4tLa2hMbgyZZ48"> --}}
+                            <a class="icon" href="{{$map->link??"#"}}">
+                                <i class="fab fa-google"></i></a>
+                    </li>
+                    <li>
+                        {{-- <a class="icon" href="https://www.facebook.com/profile.php?id=100054599433668"> --}}
+                            <a class="icon" href="{{$fb->link??"#"}}">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                    </li>
+                    <li>
+                        <a class="icon" href="{{$insta->link??"#"}}">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="icon" href="{{$yelp->link??"#"}}">
+                            {{-- <a class="icon" href="https://www.yelp.com/biz/skaja-and-daniels-escondido"> --}}
+                                <i class="fab fa-yelp"></i>
+                            </a>
+                    </li>
+                    <li>
+                        <a class="icon" href="{{$x->link??"#"}}">
+                            {{-- <a class="icon" href="https://x.com/skajadaniels"> --}}
+                                <i class="fa-solid fa-x"></i>
+                            </a>
+                    </li>
+                    <li>
+                        <a class="icon" href="{{$linkedin->link??"#"}}">
+                        {{-- <a class="icon" href="https://www.linkedin.com/company/skaja-daniels-llp/"> --}}
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </li>
 
 
-                    <li><a class="btn-1 btn-2"
+                    <li>
+                        <a class="btn-1 btn-2"
                             href="https://skaja-daniels-lister-permito-llp.mycase.com/contact_us/1iSPUXhG5p4ABzErBH85a1zC">REQUEST
-                            A FREE CASE REVIEW</a></li>
+                            A FREE CASE REVIEW</a>
+                    </li>
 
                     <li><a class="btn-1 btn-2" href="https://www.mycase.com/login/">MyCase Login</a></li>
                 </ul>
@@ -36,8 +71,18 @@
             <div class="box-content d-flex align-items-center justify-content-between">
                 <div class="logo">
                     <a href="{{route('home')}}" class="logo-nav">
-                        <img class="img-fluid one" src="{{asset('user/assets/images/logo/tri.png')}}" alt="01 Logo">
-                        <img class="img-fluid two" src="{{asset('user/assets/images/logo/tri.png')}}" alt="02 Logo">
+                        @php
+                            $logo = getSiteSettings('logo');
+                        @endphp
+                        @if ($logo)
+                            <img class="img-fluid one" src="{{ asset($logo->logo) }}" alt="01 Logo">
+                            <img class="img-fluid two" src="{{ asset($logo->logo) }}" alt="02 Logo">
+                        @else
+                            <img class="img-fluid one" src="{{ asset('user/assets/images/default-logo.png') }}"
+                                alt="Default Logo">
+                            <img class="img-fluid two" src="{{ asset('user/assets/images/default-logo.png') }}"
+                                alt="Default Logo">
+                        @endif
                     </a>
                     <a href="#open-nav-bar-menu" class="open-nav-bar"> <i class="fa-solid fa-bars"></i> </a>
                 </div>
@@ -62,13 +107,15 @@
                             <a href="practice-areas.php">Practice Areas <i class="fa-solid fa-caret-down"></i></a>
                             <ul class="level-2 scroll-new1 nav-bold">
                                 <li>
-                                    <a href="{{route('business.and.corporate.law')}}">Business & Corporate Law and Formations</a>
+                                    <a href="{{route('business.and.corporate.law')}}">Business & Corporate Law and
+                                        Formations</a>
                                 </li>
                                 <li>
                                     <a href="{{route('civil.litigation')}}">Civil Litigation</a>
                                 </li>
                                 <li>
-                                    <a href="{{route('construction.contactor.law')}}">Construction, Contractor, and Disability (ADA) Law</a>
+                                    <a href="{{route('construction.contactor.law')}}">Construction, Contractor, and
+                                        Disability (ADA) Law</a>
                                 </li>
                                 <li>
                                     <a href="{{route('criminal.law')}}">Criminal Law</a>
@@ -92,7 +139,15 @@
                 <div class="info-nav">
                     <i class="flaticon-call"></i>
                     <div class="contact-nav">
-                        <p><a href="tel:+17607813464">760-781-3464</a></p>
+                        @php
+                            $phone = getSiteSettings('phone');
+                        @endphp
+                        <p>
+                            <a href="tel:{{ $phone ? $phone->phone : '' }}">
+                                {{ $phone ? $phone->phone : '' }}
+                            </a>
+                        </p>
+                        {{-- <p><a href="tel:+17607813464">760-781-3464</a></p> --}}
                         <span>Call Us For Consultation</span>
                     </div>
                 </div>
@@ -114,8 +169,10 @@
 <div class="menu-box">
     <div class="inner-menu">
         <div class="website-info">
-            <a href="#" class="logo"><img class="img-fluid" src="{{asset('user/assets/images/logo/02_logo.png')}}"
-                    alt="02 Logo"></a>
+
+            <a href="#" class="logo">
+                <img class="img-fluid" src="{{asset('user/assets/images/logo/02_logo.png')}}" alt="02 Logo">
+            </a>
             <p>Decision Are A Professional Attorney &amp; Lawyers Services Provider Institutions. Suitable For Law Firm,
                 Injury Law, Traffic Ticket Attorney, Legacy And More.</p>
         </div>

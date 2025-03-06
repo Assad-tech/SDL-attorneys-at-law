@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\ContactUsNotification;
+use App\Models\Blog;
 use App\Models\ContactUs;
 use App\Models\Home;
 use App\Models\Property;
@@ -105,7 +106,11 @@ class HomeController extends Controller
     // Blog
     public function blog()
     {
-        return view('User.Blog.blog');
+        // $blogData = Blog::all();
+        $banner = Blog::where('type', 'banner')->first();
+        $sponers = Blog::where('type', 'sponsor')->get();
+        // dd($blogData);
+        return view('User.Blog.blog',compact('banner','sponers'));
     }
 
     // Practice Areas

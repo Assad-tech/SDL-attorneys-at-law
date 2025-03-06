@@ -1979,8 +1979,12 @@ header.navs.active {
     margin: 10px 0 0 0;
     color: #f1f1f1;
 }
+
+
 .provide .img-box {
-    background-image: url(../images/provide/TRI.jpg);
+
+    /* background-image: url(../images/provide/TRI.jpg); */
+    /* background-image: url(../images/provide/TRI.jpg); */
     background-position-y: -115px;
     background-repeat: no-repeat;
     background-size: cover;

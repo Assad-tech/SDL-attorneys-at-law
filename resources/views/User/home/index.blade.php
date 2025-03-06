@@ -1,7 +1,15 @@
 @extends('User.layout.app')
 @push('title', 'Home')
+@php
+    $main_img = getSiteSettings('why_choose_us_image');
+    // dd($main_img->why_choose_us_image);
+@endphp
 @push('styles')
-
+    <style>
+        .provide .img-box {
+            background-image: url({{ asset($main_img->why_choose_us_image ?? " ") }});
+        }
+    </style>
 @endpush
 @section('content')
     <!-- :: Header -->
@@ -544,6 +552,12 @@
     </section>
 
     <!-- :: Provide -->
+
+    @php
+        $heading = getSiteSettings('why_choose_us_heading');
+        $main_desc = getSiteSettings('why_choose_us_description');
+        // dd($main_desc->why_choose_us_description);
+    @endphp
     <section class="provide">
         <div class="container-fluid">
             <div class="row">
@@ -551,8 +565,13 @@
                     <div class="text-box">
                         <div class="sec-title">
                             <h2 style="color: white;">Why Choose Us</h2>
-                            <h3>Why You Can Trust Us, Our Values</h3>
-                            <p>Skaja, Daniels & Luu offers an experienced team of dedicated professionals
+                            <h3>{{$heading->why_choose_us_heading ?? " "}}</h3>
+                            {{-- <h3>Why You Can Trust Us, Our Values</h3> --}}
+                            <p>
+                                {{$main_desc->why_choose_us_description ?? " "}}
+                            </p>
+
+                            {{-- <p>Skaja, Daniels & Luu offers an experienced team of dedicated professionals
                                 focused on
                                 client’s needs and rights. For fifteen years, we have provided solutions to the
                                 unique needs
@@ -565,7 +584,7 @@
                                 the right to seek justice and legal remedies. We represent clients who value
                                 constructive
                                 and equitable solutions, honesty and integrity.
-                            </p>
+                            </p> --}}
                         </div>
 
                     </div>

@@ -1,8 +1,11 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\PropertyController;
+use App\Http\Controllers\Admin\SiteContentController;
+use App\Http\Controllers\Admin\SocialLinksController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\User\UserController;
@@ -59,6 +62,31 @@ Route::middleware(['sdl-attorneys-at-law:admin', 'auth'])->prefix('admin')->grou
         Route::delete('/home-section/delete/{id}',  'delete')->name('admin.home-section.delete');
         Route::get('/home-section/create', 'create')->name('admin.home-section.create');
         Route::post('/home-section/create', 'store')->name('admin.home-section.store');
+    });
+
+    // Site Content
+    Route::controller(SiteContentController::class)->group(function () {
+        Route::get('/manage-content-section', 'index')->name('admin.manage-content-section');
+        Route::post('/logo-section', 'uploadLogo')->name('admin.upload-logo');
+        Route::post('/phone-section', 'uploadPhone')->name('admin.upload-phone');
+        Route::post('/address-section', 'uploadAddress')->name('admin.upload-address');
+        Route::post('/why-choose-heading-section', 'uploadWhyChooseHeading')->name('admin.upload-why-choose-heading');
+        Route::post('/why-choose-description-section', 'uploadWhyChooseDescription')->name('admin.upload-why-choose-description');
+        Route::post('/why-choose-image-section', 'uploadWhyChooseImage')->name('admin.upload-why-choose-image');
+        Route::post('/footer-description-section', 'uploadFooterDescription')->name('admin.upload-footer-description');
+        Route::post('/footer-copyright-section', 'uploadFooterCopyright')->name('admin.upload-footer-copyright');
+    });
+
+    // Social Links
+    Route::controller(SocialLinksController::class)->group(function () {
+        Route::get('/manage-social-links', 'manageSocialLinks')->name('admin.manage.social.links');
+        Route::post('/manage-social-links', 'updateSocialLinks')->name('admin.update.social.links');
+    });
+
+    // Blog Routes
+    Route::controller(BlogController::class)->group(function () {
+        Route::get('/manage-blog', 'manageBlog')->name('admin.blog.manage');
+        Route::post('/manage-blog', 'storeBlog')->name('admin.blog.upload');
     });
 
     Route::get('/property/datatables', [PropertyController::class, 'datatable'])->name('datatables.property');

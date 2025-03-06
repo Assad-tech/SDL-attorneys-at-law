@@ -63,13 +63,13 @@
                             {{-- <h6 class="text-overflow text-white m-0">UserName</h6> --}}
                         </div>
 
-                        {{-- <!-- item-->
-                        <a href="" class="dropdown-item notify-item">
+                         <!-- item-->
+                        <a href="#" class="dropdown-item notify-item">
                             <i class="mdi mdi-account-outline"></i>
-                            <span>Profile</span>
+                            <span>Change Password</span>
                         </a>
 
-                        <!-- item-->
+                        {{--<!-- item-->
                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                             <i class="mdi mdi-cog"></i>
                             <span>Settings</span>

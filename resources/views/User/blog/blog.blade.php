@@ -8,7 +8,8 @@
 
     <!-- :: Breadcrumb Header -->
     <section class="breadcrumb-header" id="page"
-        style="background-image: url({{asset('user/assets/images/home/banner.jpg')}})">
+        {{-- style="background-image: url({{asset('user/assets/images/home/banner.jpg')}})"> --}}
+        style="background-image: url({{asset($banner->banner)}})">
         <div class="overlay"></div>
         <div class="container">
             <div class="row">
@@ -39,7 +40,16 @@
     <section class="com-logo">
         <div class="container">
             <div class="row">
+                @foreach ($sponers as $sponser )
+                {{-- @dd($sponser) --}}
                 <div class="col-lg-4">
+                    <div>
+                        <img class="img-fluid" src="{{asset($sponser->sponsor_logo)}}" alt="Sponsors">
+                    </div>
+                </div>                    
+                @endforeach
+                
+                {{-- <div class="col-lg-4">
                     <div>
                         <img class="img-fluid" src="{{asset('user/assets/images/sponsors/spon1.png')}}" alt="01 Sponsors">
                     </div>
@@ -57,7 +67,7 @@
                     <div>
                         <img class="img-fluid" src="{{asset('user/assets/images/sponsors/spon3.png')}}" alt="01 Sponsors">
                     </div>
-                </div>
+                </div> --}}
 
             </div>
         </div>
