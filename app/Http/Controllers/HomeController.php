@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Mail\ContactUsNotification;
 use App\Models\Blog;
+use App\Models\Contact;
 use App\Models\ContactUs;
 use App\Models\Home;
 use App\Models\Property;
+use App\Models\SupportingStaff;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -32,8 +34,9 @@ class HomeController extends Controller
 
     // Supporing Staff
     public function supportingStaff(){
-
-        return view('User.meetOurTeam.supportingStaff');
+        $banner = SupportingStaff::where('staff_banner', '!=', null)->first();
+        $allStaff = SupportingStaff::where('staff_banner', '=', null)->get();
+        return view('User.meetOurTeam.supportingStaff',compact('banner','allStaff'));
     }
 
     // meet-Our-Team
@@ -100,8 +103,12 @@ class HomeController extends Controller
     //Contact
     public function contactUs()
     {
+        $contact = Contact::first();
+        // remove non-numeric characters like (), -
+        $contact->sanitized_phone = preg_replace('/\D/', '', $contact->phone);
+        $contact->sanitized_fax = preg_replace('/\D/', '', $contact->fax);
 
-        return view('User.contact.contact');
+        return view('User.contact.contact',compact('contact'));
     }
     // Blog
     public function blog()

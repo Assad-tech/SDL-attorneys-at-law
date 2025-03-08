@@ -86,7 +86,7 @@
 
     <!-- :: Main JS -->
     <script src="{{asset('user/assets/js/main.js')}}"></script>
-    <script src="{{asset('user/assets/js/ajax-script.js')}}"></script>
+    {{-- <script src="{{asset('user/assets/js/ajax-script.js')}}"></script> --}}
 
     <!--read More Button-->
     <script>

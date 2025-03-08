@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\PropertyController;
 use App\Http\Controllers\Admin\SiteContentController;
 use App\Http\Controllers\Admin\SocialLinksController;
+use App\Http\Controllers\Admin\SupportingStaffController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\User\UserController;
@@ -87,6 +89,22 @@ Route::middleware(['sdl-attorneys-at-law:admin', 'auth'])->prefix('admin')->grou
     Route::controller(BlogController::class)->group(function () {
         Route::get('/manage-blog', 'manageBlog')->name('admin.blog.manage');
         Route::post('/manage-blog', 'storeBlog')->name('admin.blog.upload');
+    });
+
+    // Contact Routes
+    Route::controller(ContactController::class)->group(function () {
+        Route::get('/manage-contact', 'manageContact')->name('admin.contact.manage');
+        Route::post('/manage-contact', 'storeContact')->name('admin.contact.update');
+    });
+
+    // Supporting Staff Routes
+    Route::controller(SupportingStaffController::class)->group(function () {
+       Route::get('/manage-supporting-staff', 'manageSupportingStaff')->name('admin.supporting.staff.manage'); 
+       Route::get('/supporting-staff/create', 'create')->name('admin.supporting.staff.create'); 
+       Route::post('/supporting-staff/store', 'store')->name('admin.supporting.staff.store'); 
+       Route::post('/supporting-staff/update-banner', 'updateBanner')->name('admin.staff.update.banner'); 
+       Route::get('/supporting-staff/edit/{id}', 'edit')->name('admin.supporting.staff.edit'); 
+       Route::get('/supporting-staff/update/{id}', 'update')->name('admin.supporting.staff.update'); 
     });
 
     Route::get('/property/datatables', [PropertyController::class, 'datatable'])->name('datatables.property');

@@ -117,7 +117,7 @@
                             </a>
                         </li>
                         <li class="side-nav-item {{ Request::routeIs('specific.child.route') ? 'active' : '' }}">
-                            <a href="#" class="side-nav-link">
+                            <a href="{{route('admin.supporting.staff.manage')}}" class="side-nav-link">
                                 <span class="menu-text">Supporting Staff</span>
                             </a>
                         </li>
@@ -159,7 +159,7 @@
             </li>
 
             <li class="side-nav-item">
-                <a href="{{route('admin.manage.social.links')}}" class="side-nav-link">
+                <a href="{{route('admin.contact.manage')}}" class="side-nav-link">
                     <span class="menu-icon">
                         <span class="mdi mdi-message-alert-outline"></span>
                     </span>
